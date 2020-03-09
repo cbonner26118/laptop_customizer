@@ -5,13 +5,11 @@ import React, { Component } from "react";
 //import slugify from "slugify";
 
 import "./App.css";
-import FeatureList from "./FeatureList/FeatureList";
-import SummaryList from "./SummaryList/SummaryList";
-import Total from "./Total/Total";
+import MainForm from "./MainForm/MainForm";
+import MainSummary from "./MainSummary/MainSummary";
 
 // This object will allow us to
 // easily convert numbers into US dollar values
-
 
 class App extends Component {
   state = {
@@ -49,19 +47,12 @@ class App extends Component {
           <h1>ELF Computing | Laptops</h1>
         </header>
         <main>
-          <form className='main__form'>
-            <h2>Customize your laptop</h2>
-            <FeatureList
-              features={this.props.features}
-              selected={this.state.selected}
-              updateFeature={this.updateFeature}
-            />
-          </form>
-          <section className='main__summary'>
-            <h2>Your cart</h2>
-            <SummaryList selected={this.state.selected} />
-            <Total selected={this.state.selected}/>
-          </section>
+          <MainForm
+            features={this.props.features}
+            selected={this.state.selected}
+            updateFeature={this.updateFeature}
+          />
+          <MainSummary selected={this.state.selected} />
         </main>
       </div>
     );
